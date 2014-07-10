@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h1></h1>
+<style type="text/css">
+#p4{
+	position:absolute;
+	left:100px;
+	top: 10px; 
+}
+</style>
+</head>
+<body style = "background-color:white;">
+
+<!--<p id = "test">  </p>-->
+<!--<p id = "p1">  </p>
+<p id = "p2"> </p>
+<p id = "p3"> </p> -->
+<p id = "p4">hello &nbsp</p>
+<p id = "score"> </p>
+
+<script language="javascript" type="text/javascript">
+
+var answer = prompt ("Are you ready");
+var correct = "hello";
+var output = "";
+var check = 0;
+var x = 10;
+var s = document.getElementById("p4");
+// Store
+localStorage.setItem("lastname", "smith");
+// Retrieve
+
+function level_up()
+{
+	var started = new date();
+	var elapsed = new date() - started;
+	
+}
+
+
+function New_word()
+{
+	// for creating new p tags
+}
+
+function move_down()
+{
+  x += 5;
+	s.style.top = x + 'px';
+}
+
+
+function rand_word(p1)
+{
+
+  var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  var string = "";
+  for (var i = 0; i < p1; i++)
+  {
+    string += letters[Math.floor((Math.random() * 26))];
+  }
+  return string;
+   
+}
+
+function deleteElement()
+{
+	var r = confirm("Press a button");
+	if (r == true) {
+    //document.getElementById("test").remove();
+    var elem = document.getElementById("1");
+    elem.parentNode.removeChild(elem);
+	} else {
+		document.getElementById("test").innerHTML = "Not";
+}
+
+}
+
+
+if (answer == "no")
+{		// make the empty tag not take up space
+		setInterval(function(){move_down()},1000);
+		//document.getElementById('test').innerHTML = "yes";
+		document.onkeypress = function (event)
+		{
+			var key_code = event.keyCode;
+			var key_character = String.fromCharCode(event.keyCode);
+			//document.getElementById('p1').innerHTML = key_code;
+			//document.getElementById('p2').innerHTML = key_character;
+			output += key_character;
+			check++;
+			//document.getElementById('p3').innerHTML = output;
+			if (output != correct && check == 5)
+			{
+				check = 0;
+				output = "";
+			}
+			else if (output == correct)
+			{
+				alert("Game over!");
+				document.getElementById("score").innerHTML = localStorage.getItem("lastname");
+				location.reload();
+			}
+		}
+	
+	
+	
+}
+
+</script>
+<embed loop="infinite" src="learn.mp3" hidden="true" ></embed>
+</body>
+<!--<audio controls>
+<source src = "learn.mp3" >
+<source src = "learn.ogg">
+<source src = "learn.wav">  
+-->
+
+
+
+
+
+</html> 
